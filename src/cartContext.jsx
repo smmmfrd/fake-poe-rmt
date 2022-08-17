@@ -18,9 +18,17 @@ function CartContextProvider(props){
             return newCart;
         })
     }
+
+    function numItems(){
+        var num = 0;
+        for(var key in cart){
+            num += cart[key];
+        }
+        return num;
+    }
     
     return (
-        <CartContext.Provider value={{cart, addItem, removeItem}}>
+        <CartContext.Provider value={{cart, addItem, removeItem, numItems}}>
             {props.children}
         </CartContext.Provider>
     )

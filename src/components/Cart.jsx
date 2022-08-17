@@ -1,8 +1,11 @@
 import itemData from "../itemData"
 import { CartContext } from "../cartContext"
 import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
+
 export default function Cart(){
     const {cart, removeItem} = useContext(CartContext)
+    const navigate = useNavigate()
     var total = 0;
 
     function makeCartItems(){
@@ -19,6 +22,12 @@ export default function Cart(){
         }
         return arr;
     }
+
+    function handleCheckout(){
+        setTimeout(() =>{
+            navigate("/checkout")
+        }, 3000)
+    }
     
     const cartElements = makeCartItems();
     return(
@@ -26,6 +35,7 @@ export default function Cart(){
             <h1>Cart</h1>
             {cartElements}
             <h2>Grand Total: {total}</h2>
+            <button onClick={handleCheckout}>Checkout</button>
         </>
     )
 }
