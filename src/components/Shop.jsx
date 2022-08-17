@@ -19,6 +19,7 @@ export default function Shop(){
                 <Link to="/shop/unique">Uniques</Link>
             </h2>
             {itemElements}
+            <h2><Link to="/cart">Proceed to Checkout</Link></h2>
         </>
     )
 }
