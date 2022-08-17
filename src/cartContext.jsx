@@ -10,9 +10,17 @@ function CartContextProvider(props){
                 [id]: (id in cart) ? prevCart[id] + 1 : 1}
             ))
     }
+
+    function removeItem(id){
+        setCart(prevCart => {
+            var newCart = {...prevCart}
+            delete newCart[id];
+            return newCart;
+        })
+    }
     
     return (
-        <CartContext.Provider value={{cart, addItem}}>
+        <CartContext.Provider value={{cart, addItem, removeItem}}>
             {props.children}
         </CartContext.Provider>
     )
