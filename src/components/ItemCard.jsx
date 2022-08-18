@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { CartContext } from "../cartContext"
 
 export default function ItemCard(props){
-    const {id, name, price, description, img} = props.item
+    const {id, name, price, description, img, category} = props.item
     const {cart, addItem} = useContext(CartContext)
     const numInCart = cart[id] !== undefined ? cart[id] : 0;
 
@@ -17,7 +17,8 @@ export default function ItemCard(props){
                 <div className="shop--item-name">{name}</div>
                 <strong>${price} </strong>
                 <div className="shop--item-price">
-                    <button onClick={() => addItem(id)}>Add to Cart</button>
+                    <button onClick={() => addItem(id, 1)}>+1</button>
+                    {(category === "currency" || category === "scarab") && <button onClick={() => addItem(id, 10)}>+10</button>}
                     {numInCart > 0 && <p> In cart: {numInCart}</p>}
                 </div>
             </div>

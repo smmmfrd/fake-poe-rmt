@@ -4,10 +4,10 @@ const CartContext = React.createContext()
 function CartContextProvider(props){
     const [cart, setCart] = useState({})
 
-    function addItem(id){
+    function addItem(id, amount = 1){
         setCart(prevCart => ({
                 ...prevCart,
-                [id]: (id in cart) ? prevCart[id] + 1 : 1}
+                [id]: (id in cart) ? prevCart[id] + amount : amount}
             ))
     }
 
