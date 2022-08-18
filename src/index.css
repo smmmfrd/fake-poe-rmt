@@ -22,6 +22,7 @@ nav{
     font-size: 1.4rem;
 
     width: 50%;
+    min-width: 500px;
     padding: 1rem 4rem;
 
     display: flex;
@@ -36,7 +37,6 @@ nav{
 
 .shop--item-container{
     display: grid;
-    /* grid-template-columns: 1fr 1fr; */
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 }
 
@@ -72,4 +72,49 @@ nav{
 .shop--item-price{
     display: flex;
     gap: 0.5rem;
+}
+
+/* CART */
+
+.cart--container{
+    border: 2px solid #e0a910;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: #351f2b;
+}
+
+.cart--item > hr{
+    border: 1px solid #1a1618;
+}
+
+.cart--item-container{
+    height: 3.75rem;
+
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 2fr 1fr;
+    gap: 0.6rem;
+    background-color: #351f2b;
+}
+
+.cart--item-container *{
+    display: flex;
+    align-items: center;
+    background-color: #351f2b;
+}
+
+.cart--item-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cart--item-name{
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.cart--item-price{
+    display: inline;
+    margin: auto 0;
 }
