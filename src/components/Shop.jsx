@@ -14,13 +14,15 @@ export default function Shop(){
     return(
         <>
             <h1>Shop</h1>
-            <h2>
+            <h2 className="shop--nav">
                 <Link to="/shop/currency">Currency</Link>
                 <Link to="/shop/unique">Uniques</Link>
                 <Link to="/shop/scarab">Scarabs</Link>
                 <Link to="/shop/carry">Carries</Link>
             </h2>
-            {itemElements}
+            <div className="shop--item-container">
+                {itemElements}
+            </div>
             <h2><Link to="/cart">Proceed to Checkout</Link></h2>
         </>
     )
