@@ -14,13 +14,12 @@ export default function ItemCard(props){
         <div className="shop--item">
             <div className="shop--item-header">
                 <img src={getImageUrl(img)} height="50px" />
-                <h3>{name}</h3>
-            </div>
-
-            <div className="shop--item-price">
-                <strong>${price} - </strong>
-                <button onClick={() => addItem(id)}>Add to Cart</button>
-                {numInCart > 0 && <p> In cart: {numInCart}</p>}
+                <div className="shop--item-name">{name}</div>
+                <strong>${price} </strong>
+                <div className="shop--item-price">
+                    <button onClick={() => addItem(id)}>Add to Cart</button>
+                    {numInCart > 0 && <p> In cart: {numInCart}</p>}
+                </div>
             </div>
             <hr />
 
