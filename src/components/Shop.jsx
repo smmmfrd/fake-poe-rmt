@@ -17,6 +17,8 @@ export default function Shop(){
             <h2>
                 <Link to="/shop/currency">Currency</Link>
                 <Link to="/shop/unique">Uniques</Link>
+                <Link to="/shop/scarab">Scarabs</Link>
+                <Link to="/shop/carry">Carries</Link>
             </h2>
             {itemElements}
             <h2><Link to="/cart">Proceed to Checkout</Link></h2>
