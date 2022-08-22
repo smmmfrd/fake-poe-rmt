@@ -1,9 +1,10 @@
 import itemData from "../itemData"
 import { CartContext } from "../cartContext"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export default function Cart(){
+    const [finished, setFinished] = useState(false)
     const {cart, removeItem} = useContext(CartContext)
     const navigate = useNavigate()
     var total = 0;
@@ -34,7 +35,7 @@ export default function Cart(){
                         <div className="cart--item-name">{name}</div>
                         <div className="cart--item-price">
                             <p>Amount: {cart[key]} Cost:{price}</p>
-                            <button onClick={() => removeItem(id)}>Remove Item</button>
+                            <button onClick={() => removeItem(id)} disabled={finished}>{finished ? "Processing..." : "Remove Item" }</button>
                         </div>
                         <div className="cart--item-total">Total:{amount}</div>
                     </div>
@@ -46,6 +47,7 @@ export default function Cart(){
     }
 
     function handleCheckout(){
+        setFinished(true);
         setTimeout(() =>{
             navigate("/checkout")
         }, 3000)
@@ -58,8 +60,10 @@ export default function Cart(){
             <div className="cart--container">
                 {cartElements}
             </div>
-            <h2>Grand Total: {total}</h2>
-            <button onClick={handleCheckout}>Checkout</button>
+            <div className="cart--total-container">
+                <div className="cart--total-display">Grand Total: {total}</div>
+                <button className="cart--checkout-button" onClick={handleCheckout}>{finished ? "Processing..." : "Checkout" }</button>
+            </div>
         </>
     )
 }

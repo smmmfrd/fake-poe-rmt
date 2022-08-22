@@ -164,3 +164,23 @@ nav{
     display: inline;
     margin: auto 0;
 }
+
+.cart--item-total{
+    text-align: right;
+}
+
+.cart--total-container{
+    float: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.cart--total-display{
+    font-size: 1.8rem;
+}
+
+.cart--checkout-button{
+    font-size: 1.75rem;
+    background-color: #351f2b;
+}
