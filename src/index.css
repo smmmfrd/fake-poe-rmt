@@ -1,14 +1,16 @@
 * {
     margin: 0;
     box-sizing: border-box;
-    background-color: #412234;
+    /* background-color: #412234; */
     color: antiquewhite;
     font-family: 'Roboto Mono', monospace;
 }
 
 html{
+    background: url("./assets/backgrounds/BackdropBlackLittleSparkTransparent.png"), linear-gradient(#412234, #271e23);
     max-width: 1300px;
     margin: auto;
+    min-height: 100%;
 }
 
 main{
