@@ -18,6 +18,13 @@ main{
     margin: auto;
 }
 
+.progress-link{
+    margin: auto;
+    font-size: 2.2rem;
+    padding: 0.5rem;
+    border: 2px solid #e0a910;
+    background-color: #351f2b;
+}
 
 /* NAVBAR */
 nav{
@@ -31,7 +38,44 @@ nav{
     justify-content: space-between;
 }
 
+/* HOME */
+.home{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.home--content{
+    display: flex;
+    gap: 1rem;
+}
+
+.home--content > p {
+    border: 2px solid #e0a910;
+    background-color: #351f2b;
+    font-size: 1.55rem;
+    text-align: center;
+}
+
+.home--content > img{
+    border: 2px solid #e0a910;
+    width: 225px;
+}
+
+/* CHECKOUT */
+.checkout{
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+}
+
 /* SHOP */
+.shop{
+    display: flex;
+    flex-direction: column;
+}
+
 .shop--nav{
     display: flex;
     justify-content: space-between;

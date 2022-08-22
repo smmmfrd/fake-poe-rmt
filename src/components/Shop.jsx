@@ -10,9 +10,9 @@ export default function Shop(){
     const itemElements = categoryItems.map(item => (
         <ItemCard key={item.id} item={item} />
     ))
-    console.log(category)
+    
     return(
-        <>
+        <div className="shop">
             <h1>Shop</h1>
             <h2 className="shop--nav">
                 <Link to="/shop/currency">Currency</Link>
@@ -23,7 +23,7 @@ export default function Shop(){
             <div className="shop--item-container">
                 {itemElements}
             </div>
-            <h2><Link to="/cart">Proceed to Checkout</Link></h2>
-        </>
+            <Link className="progress-link" to="/cart">Proceed to Checkout</Link>
+        </div>
     )
 }
