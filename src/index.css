@@ -134,6 +134,11 @@ nav{
     border: 1px solid #1a1618;
 }
 
+.cart--item:last-child > hr{
+    display: none;
+}
+
+
 .cart--item-container{
     height: 3.75rem;
 

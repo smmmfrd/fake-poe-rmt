@@ -13,39 +13,6 @@ export default function Cart(){
         return new URL(`${image}`, import.meta.url).href
     }
 
-    function makeCartItems(){
-        var arr = [];
-        let keys = [];
-
-        for(var key in cart){
-            keys.push(key);
-        }
-
-        for(let i=0; i < keys.length; i++){
-            let key = keys[i];
-            const {id, name, price, img} = itemData.find(item => item.id === key);
-
-            const amount = price * cart[key];
-            total += amount;
-
-            arr.push(
-                <div className="cart--item" key={id}>
-                    <div className="cart--item-container">
-                        <div className="cart--item-img"><img src={getImageUrl(img)} height="50px" /></div>
-                        <div className="cart--item-name">{name}</div>
-                        <div className="cart--item-price">
-                            <p>Amount: {cart[key]} Cost:{price}</p>
-                            <button onClick={() => removeItem(id)} disabled={finished}>{finished ? "Processing..." : "Remove Item" }</button>
-                        </div>
-                        <div className="cart--item-total">Total:{amount}</div>
-                    </div>
-                    {i != keys.length - 1 && <hr />}
-                </div>
-            );
-        }
-        return arr;
-    }
-
     function handleCheckout(){
         setFinished(true);
         setTimeout(() =>{
@@ -53,7 +20,26 @@ export default function Cart(){
         }, 3000)
     }
     
-    const cartElements = makeCartItems();
+    const cartElements = Object.keys(cart).map(cartItem => {
+        const {id, name, price, img} = itemData.find(item => item.id === cartItem);
+        var amount = cart[cartItem];
+        var subTotal = amount * price;
+        total += subTotal;
+        return (
+            <div className="cart--item" key={id}>
+                <div className="cart--item-container">
+                    <div className="cart--item-img"><img src={getImageUrl(img)} height="50px" /></div>
+                    <div className="cart--item-name">{name}</div>
+                    <div className="cart--item-price">
+                        <p>Amount: {cart[cartItem]} Cost:{price}</p>
+                        <button onClick={() => removeItem(id)} disabled={finished}>{finished ? "Processing..." : "Remove Item" }</button>
+                    </div>
+                    <div className="cart--item-total">Total:{amount}</div>
+                </div>
+                <hr />
+            </div>
+        )
+    });
     return(
         <>
             <h1>Cart</h1>
